@@ -1,0 +1,269 @@
+:root{
+    --blanco: #FFF;
+    --oscuro: #212121;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+}
+
+/* Globales */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /*Facilita la manipulacion de box model haciendo que el paddin no modifique el tamaño del elemento*/
+    scroll-snap-type: y mandatory;
+}
+
+/* Scroll Snap */
+.servicio,
+.navegacion-principal,
+.formulario{ /* Controlamos para que el scrol se detenga en esta seccion*/
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*,*::before, *::after{
+    box-sizing: inherit; 
+}
+
+body {
+    font-size: 16px;
+    font-family: "Krub", sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /*define un degrades de fondo de la pagina*/
+    margin: 0;
+}
+
+.contenedor {
+    max-width: 100rem;
+    margin: 0 auto; /* top:0  right:auto  botton:0  left:auto*/
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;/*texto en mayuscula*/
+    font-weight: bold;
+    border-radius: .5rem;/*redondea el borde*/
+    text-align: center;
+    width: 90%;
+    border: none;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+/* Tipografia */
+h1{
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1,h2,h3{
+    text-align: center;
+}
+
+/* Titulos */
+.titulo span {
+    font-size: 2rem;
+}
+
+/* Navegacion Principal */
+.nav-background{
+    background-color: var(--secundario);
+}
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.navegacion-principal a{
+    display: block;
+    padding: 1rem;
+    color: var(--blanco);
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/* Hero */
+.hero {
+    background-image: url(../img/hero.jpeg);
+    background-size: cover;
+    height: 45rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative; /*nos ayuda en el posicionamiento del contenido*/
+}                       /*El hijo tiene una posicion absoluta que le define el padre*/
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0,0,0, .7);
+    bottom: 0; /*Coordenadas del posicionamiento del elemento(en todo el espacio)*/
+    left: 0;
+    top: 0;
+    right: 0; 
+
+    color:var(--blanco);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*alinea horizontalmente el contenido*/
+    justify-content: center; /*alinea verticalmente*/
+}
+
+/* servicios */
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.servicio p{
+    line-height: 2; /* interlineado */
+}
+
+/* Contacto */
+.formulario{
+    background-color: var(--gris);
+    width: min( 60rem, 100%); /*Min utiliza dos parametros. Toma el valor mas pequeño del primer parametro al segundo*/
+    margin: 0 auto; /*centramos el formulario*/
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+.contenedor-campos{
+
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="email"],
+.campo textarea{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+
+}
+
+.campo textarea{
+    height: 90%;
+}
+
+.enviar .boton{
+    width: 100%;
+}
+
+/* Footer */
+footer{
+    text-align: center;
+}
+
+@media (min-width: 480px){
+    .navegacion-principal {
+        flex-direction: row;
+    }
+}
+
+
+@media (min-width: 768px){
+    .boton{
+        width: auto;
+    }
+    
+    .enviar{
+        display: flex;
+        justify-content: end;
+    }
+
+    .enviar .boton{
+        width: auto;
+    }
+    
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* divide el grid en 3 columnas */
+        column-gap: 2rem; /*separacion entre columnas*/
+    }
+
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4){
+        grid-column: 1 /3;
+    }
+}
+
